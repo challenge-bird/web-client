@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const Login = lazy(() => import('./pages/LogIn'));
+const SignIn = lazy(() => import('./pages/SignIn'));
 const NotFound = lazy(() => import('./pages/404'));
 
 interface RouteType {
@@ -10,8 +10,8 @@ interface RouteType {
 
 const routes: RouteType[] = [
   {
-    path: '/login',
-    component: Login
+    path: '/signin',
+    component: SignIn
   },
   {
     path: '*',

@@ -6,7 +6,6 @@ function App(): JSX.Element {
   return (
     <Router>
       <div className="app">
-        <div className="container-fluid">
           <Suspense fallback={<div>Loading Page...</div>}>
             <Routes>
               {routes.map(route => {
@@ -16,7 +15,6 @@ function App(): JSX.Element {
               })}
             </Routes>
           </Suspense>
-        </div>
       </div>
     </Router>
   )

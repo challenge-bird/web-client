@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './css/SignIn.module.css';
 
 function Login(): JSX.Element {
 
   const [userid, setUserid] = useState<string | ''>('');
   const [password, setPassword] = useState<string | ''>('');
+  const navigate = useNavigate();
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>): Promise<void>|void => {
     event.preventDefault();
 
     if (userid === '') {
@@ -17,7 +19,13 @@ function Login(): JSX.Element {
       return;
     }
 
-    // alert('submitted!');
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+        navigate('/');
+      }, 1_000);
+    });
+    
   }
 
   return (

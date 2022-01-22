@@ -15,3 +15,9 @@ code {
 .center {
   text-align: center;
 }
+
+.spinner-border {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}

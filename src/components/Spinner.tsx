@@ -4,7 +4,7 @@ function Spinner(): JSX.Element {
   return (
     <>
       <div className="d-flext justify-content-center">
-        <div className="spinner-border" style={{ width: '3rem', height: '3rem'}} role="status">
+        <div className="spinner-border" style={{ width: '5rem', height: '5rem' }} role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 
-const Main = lazy(() => import('../pages/main/Main'));
-const SignIn = lazy(() => import('../pages/main/SignIn'));
-const NotFound = lazy(() => import('../pages/main/404'));
+const Main = lazy(() => import('./pages/Main'));
+const SignIn = lazy(() => import('./pages/SignIn'));
+const NotFound = lazy(() => import('./pages/404'));
 
 interface RouteType {
   path: string;

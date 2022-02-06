@@ -1,8 +1,11 @@
 import { lazy } from 'react';
 
-const Main = lazy(() => import('./pages/Main'));
 const SignIn = lazy(() => import('./pages/SignIn'));
 const NotFound = lazy(() => import('./pages/404'));
+
+const Main = lazy(() => import('./pages/Main'));
+const Home = lazy(() => import('./pages/Home'));
+const Link = lazy(() => import('./pages/Link'));
 
 interface RouteType {
   path: string;
@@ -13,6 +16,14 @@ const routes: RouteType[] = [
   {
     path: '/',
     component: Main
+  },
+  {
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/Link',
+    component: Link
   },
   {
     path: '/signin',

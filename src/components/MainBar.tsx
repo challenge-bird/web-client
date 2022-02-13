@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 
-function NavigationBar(): JSX.Element {
+function MainBar(): JSX.Element {
 
   return (
     <>
@@ -37,4 +37,4 @@ function NavigationBar(): JSX.Element {
   );
 }
 
-export default NavigationBar;
+export default MainBar;

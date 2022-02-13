@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from '../components/Navbar';
+import MainBar from '../components/MainBar';
 
 function Home(): JSX.Element {
 
   return (
     <>
-      <NavBar />
+      <MainBar />
       <h1>Home</h1>
     </>
   );

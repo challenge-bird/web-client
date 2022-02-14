@@ -6,7 +6,7 @@ function MainBar(): JSX.Element {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

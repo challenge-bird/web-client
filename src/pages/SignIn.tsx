@@ -22,6 +22,7 @@ function Login(): JSX.Element {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
+        // http://jparangdev.asuscomm.com:20002/hello
         navigate('/');
       }, 1_000);
     });

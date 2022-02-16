@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './css/404.module.css';
 
+import styles from './css/404.module.css';
 
 function NotFound(): JSX.Element {
 

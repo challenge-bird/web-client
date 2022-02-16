@@ -1,0 +1,22 @@
+.speech-balloon {
+  position: relative;
+  margin: 50px;
+  width: 400px;
+  height: 200px;
+  background: #EAEAEA;
+  border-radius: 10px;
+}
+.speech-balloon:after {
+  border-top: 15px solid #EAEAEA;
+  border-left: 15px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  content: "";
+  position: absolute;
+  top: 150px;
+  left: -15px;
+}
+
+.speech-content {
+  padding: 20px;
+}

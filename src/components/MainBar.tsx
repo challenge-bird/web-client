@@ -8,7 +8,7 @@ function MainBar(): JSX.Element {
     <>
       <Navbar expand="lg" bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="/">Bird</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

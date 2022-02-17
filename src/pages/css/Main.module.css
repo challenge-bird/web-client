@@ -20,3 +20,12 @@
 .speech-content {
   padding: 20px;
 }
+
+.character {
+  position: relative;
+  top: 100px;
+}
+
+.character-balloon {
+  position: relative;
+}

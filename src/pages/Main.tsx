@@ -13,6 +13,8 @@ function Main(): JSX.Element {
     <>
       <Mainbar />
       <Container>
+        <div className={styles['chracter-balloon']}></div>
+        <img className={styles['character']} src="img/bird.png" alt="bird"></img>
         <div className={styles['speech-balloon']}>
           <div className={styles['speech-content']}>{ballonText}</div>
         </div>

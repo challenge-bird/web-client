@@ -4,8 +4,6 @@ import styles from './css/Calendar.module.css';
 
 function Calendar(): JSX.Element {
 
-  let thisMonth = new Date().getMonth() + 1;
-
   const drawCalendarBody = (): JSX.Element => {
 
     // 0 일, 1 월, 2 화, 3 수, 4 목, 5 금, 6 토
@@ -17,33 +15,38 @@ function Calendar(): JSX.Element {
     let thisYear: number = date.getFullYear();
     let thisMonth: number = date.getMonth();
 
-    let today: number = date.getDate();
-
     let lastDayOfThisMonth: number = new Date(thisYear, thisMonth + 1, 0).getDate();
-    let lastDayOfThisMonthDayOfWeek: number = new Date(thisYear, thisMonth + 1, 0).getDay();
 
     let firstDayOfThisMonthDayOfWeek: number = new Date(thisYear, thisMonth + 1, 1).getDay();
 
-    let lastDayOfLastMonth: number = new Date(thisYear, thisMonth, 0).getDate();
-    let lastDayOfLastMonthDayOfWeek: number = new Date(thisYear, thisMonth, 0).getDay();
-
-    let curDay: number = 0;
+    let curDay: number = 1;
 
     for (let i = 0; i < 6; i++) {
       let weekArray: Array<number> = [];
 
       for (let j = 0; j < 7; j++) {
         if (i === 0) {
-          weekArray.push(new Date(thisYear, thisMonth, 1 - firstDayOfThisMonthDayOfWeek + j).getDate());
+          let day = new Date(thisYear, thisMonth, 1 - firstDayOfThisMonthDayOfWeek + j).getDate();
+          curDay = day;
+
+          weekArray.push(day);
         } else {
-
+          curDay++;
+          if (curDay <= lastDayOfThisMonth) {
+            weekArray.push(curDay);
+          } else {
+            curDay = 1;
+            weekArray.push(curDay);
+          }
         }
-        curDay++;
       }
-      result.push(weekArray);
-    }
 
-    console.log(result)
+      result.push(weekArray);
+
+      if (i > 3 && result[i][1] < lastDayOfThisMonth) {
+        result.pop();
+      }
+    }
 
     return (
       <tr>

@@ -1,0 +1,23 @@
+table, th, td {
+  border: 1px solid #EAEAEA;
+}
+
+.calendar {
+  margin: 20px;
+  width: 100%;
+}
+
+.calendar tr {
+  height: 150px;
+}
+
+.calendar th {
+  width: 20px;
+  text-align: center;
+}
+
+.calendar td {
+  text-align: right;
+  vertical-align: top;
+  padding: 10px;
+}

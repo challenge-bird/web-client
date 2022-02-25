@@ -61,13 +61,6 @@ function Calendar(): JSX.Element {
     });
   }
 
-  // const renderMovies: JSX.Element[] | string = movies.length ? movies.map(movie => {
-  //   return (
-  //     <MovieCard key={movie['id']} {...movie} removeMovie={removeMovie} />
-  //   );
-  // }) : '추가된 영화가 없습니다.';
-  // const drawCalendarBody = ()
-
   return (
     <>
       <div>

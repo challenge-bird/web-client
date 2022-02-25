@@ -4,11 +4,11 @@ import styles from './css/Calendar.module.css';
 
 function Calendar(): JSX.Element {
 
-  const drawCalendarBody = (): JSX.Element => {
+  const drawCalendarBody = (): JSX.Element[]=> {
 
     // 0 일, 1 월, 2 화, 3 수, 4 목, 5 금, 6 토
 
-    let result: Array<any> = [];
+    let result: Array<Array<any>> = [];
 
     let date: Date = new Date();
 
@@ -48,19 +48,25 @@ function Calendar(): JSX.Element {
       }
     }
 
-    return (
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-      </tr>
-    )
-    
+    return result.map(week => {
+      return (
+        <tr>
+          {week.map(day => {
+            return (
+              <td>{day}</td>
+            )
+          })}
+        </tr>
+      );
+    });
   }
+
+  // const renderMovies: JSX.Element[] | string = movies.length ? movies.map(movie => {
+  //   return (
+  //     <MovieCard key={movie['id']} {...movie} removeMovie={removeMovie} />
+  //   );
+  // }) : '추가된 영화가 없습니다.';
+  // const drawCalendarBody = ()
 
   return (
     <>

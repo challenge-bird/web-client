@@ -1,4 +1,5 @@
 import react from 'react';
+import moment from 'moment';
 
 import styles from './css/Calendar.module.css';
 
@@ -50,10 +51,10 @@ function Calendar(): JSX.Element {
 
     return result.map(week => {
       return (
-        <tr>
+        <tr key={week[0]}>
           {week.map(day => {
             return (
-              <td>{day}</td>
+              <td key={day} className={day > lastDayOfThisMonth ? styles['not-this-month']: ''}>{day}</td>
             )
           })}
         </tr>

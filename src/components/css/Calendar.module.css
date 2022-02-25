@@ -21,3 +21,7 @@ table, th, td {
   vertical-align: top;
   padding: 10px;
 }
+
+.not-this-month {
+  background-color: #EAEAEA;
+}

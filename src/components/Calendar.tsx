@@ -1,66 +1,70 @@
 import react from 'react';
-import moment from 'moment';
 
 import styles from './css/Calendar.module.css';
 
 function Calendar(): JSX.Element {
-
-  const drawCalendarBody = (): JSX.Element[]=> {
-
+  // const [month, setMonth] = useState<JSX.Element>();
+  const drawCalendarBody = (): JSX.Element[] => {
+    let result: Array<Array<Date>> = [];
     // 0 일, 1 월, 2 화, 3 수, 4 목, 5 금, 6 토
-
-    let result: Array<Array<any>> = [];
 
     let date: Date = new Date();
 
     let thisYear: number = date.getFullYear();
     let thisMonth: number = date.getMonth();
 
-    let lastDayOfThisMonth: number = new Date(thisYear, thisMonth + 1, 0).getDate();
+    let firstDay: Date = new Date(thisYear, thisMonth, 1);
+    let lastDay: Date = new Date(thisYear, thisMonth + 1, 0);
 
-    let firstDayOfThisMonthDayOfWeek: number = new Date(thisYear, thisMonth + 1, 1).getDay();
+    let curDate: Date = new Date();
 
-    let curDay: number = 1;
-
+    let isBreak = false;
     for (let i = 0; i < 6; i++) {
-      let weekArray: Array<number> = [];
+      let weekArray: Array<Date> = [];
+
+      if (i === 0) {
+        curDate = firstDay;
+      } else {
+        curDate.setDate(curDate.getDate() + 7);
+      }
 
       for (let j = 0; j < 7; j++) {
-        if (i === 0) {
-          let day = new Date(thisYear, thisMonth, 1 - firstDayOfThisMonthDayOfWeek + j).getDate();
-          curDay = day;
-
-          weekArray.push(day);
-        } else {
-          curDay++;
-          if (curDay <= lastDayOfThisMonth) {
-            weekArray.push(curDay);
-          } else {
-            curDay = 1;
-            weekArray.push(curDay);
-          }
+        let tmpDate = new Date(
+          curDate.setDate(curDate.getDate() - curDate.getDay() + j)
+        );
+        if (j === 0 && tmpDate > lastDay) {
+          isBreak = true;
+          break;
         }
+        weekArray.push(
+          new Date(curDate.setDate(curDate.getDate() - curDate.getDay() + j))
+        );
       }
 
-      result.push(weekArray);
-
-      if (i > 3 && result[i][1] < lastDayOfThisMonth) {
-        result.pop();
-      }
+      if (!isBreak) result.push(weekArray);
     }
 
-    return result.map(week => {
+    return result.map((week, weekIdx) => {
       return (
-        <tr key={week[0]}>
-          {week.map(day => {
+        <tr key={weekIdx}>
+          {week.map((day) => {
             return (
-              <td key={day} className={day > lastDayOfThisMonth ? styles['not-this-month']: ''}>{day}</td>
-            )
+              <td
+                key={day.getTime()}
+                className={
+                  day.getMonth() !== date.getMonth()
+                    ? styles['not-this-month']
+                    : ''
+                }
+              >
+                {day.getDate()}
+              </td>
+            );
           })}
         </tr>
       );
     });
-  }
+  };
 
   return (
     <>
@@ -77,13 +81,11 @@ function Calendar(): JSX.Element {
               <th>토</th>
             </tr>
           </thead>
-          <tbody>
-            {drawCalendarBody()}
-          </tbody>
+          <tbody>{drawCalendarBody()}</tbody>
         </table>
       </div>
     </>
   );
 }
 
-export default Calendar; 
+export default Calendar;

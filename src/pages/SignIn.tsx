@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { sendRequest } from '../lib/common';
 
 import styles from './css/SignIn.module.css';
 
@@ -8,6 +9,11 @@ function Login(): JSX.Element {
   const [userid, setUserid] = useState<string | ''>('');
   const [password, setPassword] = useState<string | ''>('');
   const navigate = useNavigate();
+
+  sendRequest({
+    url: '/helloPost',
+    method: 'POST',
+  });
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): Promise<void>|void => {
     event.preventDefault();
@@ -23,7 +29,6 @@ function Login(): JSX.Element {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
-        // http://jparangdev.asuscomm.com:20002/hello
         navigate('/');
       }, 1_000);
     });

@@ -1,9 +1,8 @@
-import react from 'react';
-
 import styles from './css/Calendar.module.css';
 
 function Calendar(): JSX.Element {
   // const [month, setMonth] = useState<JSX.Element>();
+
   const drawCalendarBody = (): JSX.Element[] => {
     let result: Array<Array<Date>> = [];
     // 0 일, 1 월, 2 화, 3 수, 4 목, 5 금, 6 토
@@ -36,7 +35,7 @@ function Calendar(): JSX.Element {
           isBreak = true;
           break;
         }
-        weekArray.push(
+          weekArray.push(
           new Date(curDate.setDate(curDate.getDate() - curDate.getDay() + j))
         );
       }

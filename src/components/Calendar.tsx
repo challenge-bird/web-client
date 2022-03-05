@@ -47,15 +47,23 @@ function Calendar(): JSX.Element {
       return (
         <tr key={weekIdx}>
           {week.map((day) => {
+            let isThisMonth: boolean = day.getMonth() === date.getMonth();
+            let weekday: number = day.getDay();
+
+            let clsNms: Array<string>= [];
+
+            if (!isThisMonth) {
+              clsNms.push(styles['not-this-month']);
+            }
+
+            if (weekday === 0) {
+              clsNms.push(styles['holyday']);
+            } else if (weekday === 6) {
+              clsNms.push(styles['saturday']);
+            }
+
             return (
-              <td
-                key={day.getTime()}
-                className={
-                  day.getMonth() !== date.getMonth()
-                    ? styles['not-this-month']
-                    : ''
-                }
-              >
+              <td key={day.getTime()} className={clsNms.join(' ')} >
                 {day.getDate()}
               </td>
             );
@@ -71,13 +79,13 @@ function Calendar(): JSX.Element {
         <table className={styles['calendar']}>
           <thead>
             <tr>
-              <th>일</th>
+              <th className={styles['holyday']}>일</th>
               <th>월</th>
               <th>화</th>
               <th>수</th>
               <th>목</th>
               <th>금</th>
-              <th>토</th>
+              <th className={styles['saturday']}>토</th>
             </tr>
           </thead>
           <tbody>{drawCalendarBody()}</tbody>

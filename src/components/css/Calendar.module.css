@@ -13,6 +13,7 @@ table, th, td {
 
 .calendar th {
   width: 20px;
+  background-color: #FFFFE4;
   text-align: center;
 }
 
@@ -24,4 +25,12 @@ table, th, td {
 
 .not-this-month {
   background-color: #F6F6F6;
+}
+
+.holyday {
+  color: red;
+}
+
+.saturday {
+  color: blue;
 }
